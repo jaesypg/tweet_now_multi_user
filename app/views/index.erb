@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Welcome to Recent Tweet 1!</h1>
+  <p>Hello, world!</p>
+
+  <form action="/" method="post">
+    Twitter username: <input type="text" name="username" size="30"></input><br><br>
+    <input type="submit" value="Get Tweets"></input>
+  </form>
+
+  <% unless @tweets.nil? %>
+    <% @tweets.each do |tw| %>
+      <br><br><b><%= tw.text %></b><br><br>
+    <% end %>
+  <% end %>
+
+</div>
