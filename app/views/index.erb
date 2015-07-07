@@ -1,3 +1,6 @@
+
+<div class="tweet" data-username="<%= params[:username] %>"></div>
+
 <div class="container">
   <h1>Welcome to Recent Tweet 1!</h1>
   <p>Hello, world!</p>
@@ -12,5 +15,6 @@
       <br><br><b><%= tw.text %></b><br><br>
     <% end %>
   <% end %>
+  <%=params[:username]%>
 
 </div>
