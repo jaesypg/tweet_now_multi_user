@@ -26,7 +26,6 @@ class TwitterUser < ActiveRecord::Base
       #   return false
       # end
       # if (self.tweets.first.created_at + 15.minutes) < Time.now ? true : false
-      self.tweets.order_by
       if (self.tweets.first.created_at + 15.minutes) < Time.now
         return true
       else
@@ -34,4 +33,5 @@ class TwitterUser < ActiveRecord::Base
       end
     end
   end
+
 end
