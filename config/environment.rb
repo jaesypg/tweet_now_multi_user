@@ -39,12 +39,12 @@ require APP_ROOT.join('config', 'database')
 
 # API_KEYS = YAML::load(File.open('config/api_keys.yml'))
 
-$client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ENV['consumer_key']
-  config.consumer_secret     = ENV['consumer_secret']
-  config.access_token        = API_KEYS["development"]["twitter_access_token_id"]
-  config.access_token_secret = API_KEYS["development"]["twitter_access_token_secret_key_id"]
-end
+# $client = Twitter::REST::Client.new do |config|
+#   config.consumer_key        = ENV['consumer_key']
+#   config.consumer_secret     = ENV['consumer_secret']
+#   config.access_token        = API_KEYS["development"]["twitter_access_token_id"]
+#   config.access_token_secret = API_KEYS["development"]["twitter_access_token_secret_key_id"]
+# end
 
 use OmniAuth::Builder do
   provider :twitter, env['consumer_key'], env['consumer_secret']
