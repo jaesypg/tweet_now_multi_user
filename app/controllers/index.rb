@@ -51,9 +51,9 @@ post '/signin/twitter' do
 end
 
 get '/auth/twitter/callback' do
-  @username =  env['omniauth.auth']['info'].nickname
-  token     =  env['omniauth.auth']['credentials'].token
-  secret    =  env['omniauth.auth']['credentials'].secret
+  @username =  ENV['omniauth.auth']['info'].nickname
+  token     =  ENV['omniauth.auth']['credentials'].token
+  secret    =  ENV['omniauth.auth']['credentials'].secret
   @twitteruser = TwitterUser.find_by_username(@username)
   if @twitteruser == nil
     @twitteruser = TwitterUser.create(username: @username, access_token_id: token, access_token_secret_key_id: secret)

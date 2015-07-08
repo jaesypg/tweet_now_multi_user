@@ -42,8 +42,8 @@ class TwitterUser < ActiveRecord::Base
   private
   def get_client
     $signin_client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = env['consumer_key']
-      config.consumer_secret     = env['consumer_secret']
+      config.consumer_key        = ENV['consumer_key']
+      config.consumer_secret     = ENV['consumer_secret']
       # config.access_token        = @twitteruser.access_token_id
       # config.access_token_secret = @twitteruser.access_token_secret_key_id
       config.access_token        = self.access_token_id

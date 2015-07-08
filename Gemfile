@@ -19,11 +19,16 @@ gem 'rspec'
 gem 'shotgun'
 
 gem 'twitter'
-gem 'byebug'
+
 gem 'omniauth-twitter'
 gem "awesome_print"
 
 group :test do
   gem 'faker'
 
+end
+
+
+group :development do
+  gem 'byebug'
 end
