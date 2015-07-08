@@ -22,6 +22,9 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'twitter'
 require 'yaml'
+require "awesome_print"
+
+require 'omniauth-twitter'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -44,5 +47,8 @@ $client = Twitter::REST::Client.new do |config|
   config.access_token_secret = API_KEYS["development"]["twitter_access_token_secret_key_id"]
 end
 
+use OmniAuth::Builder do
+  provider :twitter, API_KEYS["development"]["twitter_consumer_key_id"], API_KEYS["development"]["twitter_consumer_secret_key_id"]
+end
 
 

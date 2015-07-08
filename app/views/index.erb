@@ -3,8 +3,20 @@
 
 <div class="container">
   <h1>Welcome to Recent Tweet 1!</h1>
-  <p>Hello!</p>
 
+  <% if session[:username].nil? %>
+  <p>Hello, try sign in with Twitter account!</p>
+    <form id="form2" action="/signin/twitter" method="post">
+      <input id="button" type="submit" value="Sign In"></input>
+    </form><br><br>
+  <% else %>
+     <p>Hello <%= session[:username] %></p>
+    <form id="form3" action="/logout" method="post">
+    <input id="button" type="submit" value="Logout"></input>
+    </form><br><br>
+  <% end %>
+
+  <% unless session[:username].nil? %>
   <form id="form1" action="/" method="post">
     What to tweet today?<br>
     <input type="text" name="tweet[text]" size="30"></input><br><br>
@@ -16,5 +28,6 @@
   </div>
   <div class="tweets">
   </div>
+  <% end %>
 
 </div>
